@@ -1,6 +1,6 @@
 import findUp from "find-up";
 import axios from "axios";
-
+import dotenv from "dotenv";
 const findSecret = () => {
   const dotenvPath = findUp.sync(".env");
 
@@ -9,7 +9,7 @@ const findSecret = () => {
     process.exit(1);
   }
 
-  const loadedEnv = require("dotenv").config({ path: dotenvPath }).parsed;
+  const loadedEnv = dotenv.config({ path: dotenvPath }).parsed;
 
   console.log("Loaded dotenv:", loadedEnv);
 
@@ -31,5 +31,4 @@ const styled = () => {
   console.log("Bonjour, cette version est la bonne 7.1.3");
   findSecret();
 };
-styled();
 export default styled;
