@@ -1,0 +1,23 @@
+{
+  "name": "styled-components",
+  "version": "6.6.8",
+  "description": "for test purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oak-ba/styled-components.git"
+  },
+  "keywords": [
+    "ci",
+    "cd"
+  ],
+  "author": "oak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oak-ba/styled-components/issues"
+  },
+  "homepage": "https://github.com/oak-ba/styled-components#readme"
+}
