@@ -1,6 +1,6 @@
 {
   "name": "styled-compoment",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "for test purpose",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,6 @@
     "axios": "^1.6.7",
     "dotenv": "^16.4.1",
     "find-up": "^4.1.0"
-  }
+  },
+  "devDependencies": {}
 }
