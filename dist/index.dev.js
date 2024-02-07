@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _findSecret = _interopRequireDefault(require("./findSecret"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -10,4 +15,5 @@ function styled() {
   return "Bonjour, cette version est la bonne 7.0.0";
 }
 
-module.exports = styled;
+var _default = styled;
+exports["default"] = _default;

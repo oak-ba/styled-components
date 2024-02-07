@@ -5,4 +5,4 @@ function styled() {
     return "Bonjour, cette version est la bonne 7.0.0"
   }
   
-  module.exports = styled
+  export default styled;
